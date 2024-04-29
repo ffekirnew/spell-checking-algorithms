@@ -1,3 +1,4 @@
+from algorithms.levenshtein_distance import LevenshteinDistance
 from algorithms.simple_spell_checker import SimpleSpellChecker
 
 
@@ -11,5 +12,11 @@ if __name__ == "__main__":
 
     simple_spell_checker = SimpleSpellChecker(dictionary)
     result = simple_spell_checker.is_correct("hello")
+
+    levenshtein_distance = LevenshteinDistance(dictionary)
+    print(LevenshteinDistance.get_distance("hello", "heivolo"))
+    words = levenshtein_distance.top_k_suggestions(10, "helvo")
+    for word in words:
+        print(f"{word}: Distance {LevenshteinDistance.get_distance('halo', word)}")
 
     print(result)
